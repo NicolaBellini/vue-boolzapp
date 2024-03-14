@@ -93,8 +93,9 @@
             <img src="img/avatar_2.jpg" alt="">
           </div>
           <div class="name margin-left-s">
-            <p>Fabio</p>
-            <p>Ultimo accesso oggi alle 16.26</p>
+            <p>{{contact.name}}</p>
+            <!-- qua ho fatto una rierca e con .substring uso solo le parti della stringa che mi servono -->
+            <p>Ultimo accesso oggi alle  {{contact.messages[contact.messages.length-1].date.split(' ')[1].substring(0,5)}}</p>
           </div>
         </div>
         <div class="action d-flex align-center d-between margin-right-s">
