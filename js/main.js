@@ -182,6 +182,13 @@ createApp({
         "Ah, non lo sapevo! Grazie per l'informazione."
       ],
       counterBotAnswer:0,
+
+    //   // inputdata
+    //   searchedNameInput:'',
+    //   // isSearched:true,
+    //   isInpuFocus:false
+        searchInput: '',
+        isSearched:false,
       
     }
   },
@@ -233,30 +240,45 @@ createApp({
        
         
        }, 1000); 
-      
-
     },
+
+    // searchingUserInMiniature(){
+    //   if (!this.serchedNameInput.includes(searchedName())) {
+    //     return 'class="hidden"'
+    //   }
+    // }
 
   },
 
   computed:{
     // messaggi inviati
-    sentMessages() {
-     
+    sentMessages(){
       return this.contacts[this.counterContact].messages.filter(message => message.status === 'sent');
     },
     // messaggi ricevuti
-    receivedMessages() {
+    receivedMessages(){
       return this.contacts[this.counterContact].messages.filter(message => message.status === 'received');
     },
-    // funzione per stabilire l' ultima volta che era online l' utente
+
+    filteredContacts(){
+        if(this.isSearched){
+            return this.contacts.filter(contact => contact.name.toLowerCase().includes(this.searchInput.toLowerCase()))
+        }
+        return this.contacts
+      }
+    // computed per vedere se quello che srivo nell' input è incluso nel nome dell' user
+    // searchedContacts(){
+    //   if (this.searchedNameInput === '') {
+    //     return this.contacts;
+    //   } else {
+    //     return this.contacts.filter(contact => contact.name.toLowerCase().includes(this.searchedNameInput.toLowerCase()));
+    //   }
+    // }
 
   },
 
   mounted() {
-    console.log(this.contacts,'ciao');
+    console.log(this.contacts,'ciao',);
   },
-  mounted(){
-    console.log(receivedMessages());
-  }
+  
 }).mount('#app')

@@ -49,10 +49,11 @@
       <div class="col input d-flex d-center align-center">
         <div class="container d-flex">
           <div class="magnifying d-flex align-center d-center">
-            <i class="fa-solid fa-magnifying-glass"></i>
+            <i class="fa-solid fa-magnifying-glass" @click="isSearched=true"></i>
           </div> 
           <div class="search d-flex align-center">
-            <input type="text" placeholder="Cerca o inizia una nuova chat">
+            <input type="text" placeholder="Cerca o inizia una nuova chat"
+            v-model.trim="searchInput">
           </div>
         </div>
       </div>
@@ -61,26 +62,54 @@
 
 
         <!-- un contatto miniatura -->
-        <div
-          @click="getIdChat(index), console.log(counterContact)"
-          class="col personal d-flex align-center"
-          v-for="(contact,index) in contacts">
-          <div class="icon margin-left-s">
-            <img :src="contact.avatar" alt="">
-          </div>
-          <div class="name margin-left-s">
-            <p>{{contact.name}}</p>
-            <!-- prendo l ultimo messaggio ad indice .length-1 -->
-            <p>{{contact.messages[contact.messages.length-1].message}}</p>
-          </div>
-          <div class="time">
-            <!-- prendo l' orario dividendo la proprietà in un arry di due stringhe usando lo spazio e mi prendo l' indice 1 -->
-            <p>
-              {{contact.messages[contact.messages.length-1].date.split(' ')[1].substring(0,5)}}
-            </p>
-          </div>
-        </div> 
+        <div v-if="">
+          <div
+            @click="getIdChat(index), console.log(counterContact)"
+            class="col personal d-flex align-center"
+            v-for="(contact,index) in filteredContacts"
+            >
+            <div class="icon margin-left-s">
+              <img :src="contact.avatar" alt="">
+            </div>
+            <div class="name margin-left-s">
+              <p>{{contact.name}}</p>
+              <!-- prendo l ultimo messaggio ad indice .length-1 -->
+              <p class="margin-rigth-s">{{contact.messages[contact.messages.length-1].message}}</p>
+            </div>
+            <div class="time">
+              <!-- prendo l' orario dividendo la proprietà in un arry di due stringhe usando lo spazio e mi prendo l' indice 1 -->
+              <p>
+                {{contact.messages[contact.messages.length-1].date.split(' ')[1].substring(0,5)}}
+              </p>
+            </div>
+          </div> 
+        </div>
         <!-- un contatto miniatura-->
+<!-- 
+        questo div appare se l' utenete è cercato nell' input
+          <div v-else>
+            <div
+            @click="getIdChat(index), console.log(counterContact)"
+            class="col personal d-flex align-center"
+            v-for="(contact,index) in searchedContacts"
+            :key="contact.name"
+          >
+            <div class="icon margin-left-s">
+              <img :src="contact.avatar" alt="">
+            </div>
+            <div class="name margin-left-s">
+              <p>{{contact.name}}</p>
+              prendo l ultimo messaggio ad indice .length-1
+              <p class="margin-rigth-s">{{contact.messages[contact.messages.length-1].message}}</p>
+            </div>
+            <div class="time">
+              prendo l' orario dividendo la proprietà in un arry di due stringhe usando lo spazio e mi prendo l' indice 1
+              <p>
+                {{contact.messages[contact.messages.length-1].date.split(' ')[1].substring(0,5)}}
+              </p>
+            </div>
+          </div> 
+        </div> -->
       </div>
     </div>
 

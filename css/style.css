@@ -242,6 +242,10 @@ i{
   overflow: scroll;
 }
 
+.col.chat> div{
+  cursor: pointer;
+}
+
 .col.personal{
 position: relative;
 height: 80px;
@@ -304,6 +308,7 @@ border: 1px solid var(--header);
 .col.lecture{
   height: calc(100% - 140px) ;
   overflow: scroll;
+  scroll-behavior: smooth;
   background-color: var(--message-bc);
   /* background-image: url(https://images.unsplash.com/photo-1604076913837-52ab5629fba9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGFzdHJhdHRvfGVufDB8fDB8fHww);
   background-repeat: no-repeat;
