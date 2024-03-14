@@ -282,7 +282,7 @@ createApp({
   },
 
   mounted() {
-    console.log(this.contacts,'ciao', this.setDateTime(), 'ciao', this.newMessageObj);
+    console.log(this.contacts,'ciao', this.setDateTime(), 'ciao', this.newMessageObj,this.receivedMessages);
   },
   
 }).mount('#app')
