@@ -180,31 +180,32 @@ createApp({
 
     // funxione per sapere l' ora e la data dell' invio del newMessageObj
     setDateTime(){
-      const Date = new Date();
+      const newDate = new Date();
       
-      const day = Date.getDate();
-      const month = Date.getMonth() + 1;
+      const day = newDate.getDate();
+      const month = newDate.getMonth() + 1;
        // I mesi in JavaScript vanno da 0 a 11, quindi aggiungiamo 1
-      const year = Date.getFullYear();
+      const year = newDate.getFullYear();
       
-      const hour = Date.getHours();
-      const minutes = Date.getMinutes();
+      const hour = newDate.getHours();
+      const minutes = newDate.getMinutes();
       
       const fullDate = `${year}-${month < 10 ? '0' + month : month}-${day < 10 ? '0' + day : day}`;
-      
+
       const fulltime = `${hour < 10 ? '0' + hour : hour}:${minutes < 10 ? '0' + minutes : minutes}`;
       
-      return {fullDate,fulltime };
+      return `${fullDate} ${fulltime}`;
     },
 
 
     // creo il nuovo messaggio
     addNewMessage(){
       const newMessageObj = {
-        date: '10/01/2020 15:51:00',
-        message: 'OK!!',
-        status: 'received'
+        date: this.setDateTime(),
+        message: this.newMessageSent,
+        status: 'sent'
       }
+      this.contacts[this.counterContact].messages.push(newMessageObj);
     },
 
   },

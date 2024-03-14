@@ -199,7 +199,11 @@
           <i class="fa-regular fa-face-smile"></i>
         </div>
         <div class="insert d-flex align-center">
-          <input type="text" placeholder="Scrivi un messaggio">
+          <input
+            type="text"
+            placeholder="Scrivi un messaggio"
+            v-model="newMessageSent"
+            @keyUp.enter="addNewMessage(), console.log(contacts)">
         </div>
         <div class="vocal d-flex align-center d-center">
           <i class="fa-solid fa-microphone"></i>
