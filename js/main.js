@@ -207,18 +207,41 @@ createApp({
       }
       this.contacts[this.counterContact].messages.push(newMessageObj);
       this.newMessageSent='';
+
+       setTimeout(() => {
+        const newMessageObjReceived = {
+          date: this.setDateTime(),
+          message: 'ok',
+          status: 'received'
+        }
+        this.contacts[this.counterContact].messages.push(newMessageObjReceived);
+        this.newMessageSent='';
+        
+       }, 1000); 
+      
+
     },
 
   },
 
   computed:{
+    // messaggi inviati
     sentMessages() {
      
       return this.contacts[this.counterContact].messages.filter(message => message.status === 'sent');
-    }
+    },
+    // messaggi ricevuti
+    receivedMessages() {
+      return this.contacts[this.counterContact].messages.filter(message => message.status === 'received');
+    },
+    // funzione per stabilire l' ultima volta che era online l' utente
+
   },
 
   mounted() {
     console.log(this.contacts,'ciao');
   },
+  mounted(){
+    console.log(receivedMessages());
+  }
 }).mount('#app')

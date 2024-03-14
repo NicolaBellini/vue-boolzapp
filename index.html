@@ -60,7 +60,7 @@
       <div class="col chat">
 
 
-        <!-- un contatto -->
+        <!-- un contatto miniatura -->
         <div
           @click="getIdChat(index), console.log(counterContact)"
           class="col personal d-flex align-center"
@@ -76,11 +76,11 @@
           <div class="time">
             <!-- prendo l' orario dividendo la proprietà in un arry di due stringhe usando lo spazio e mi prendo l' indice 1 -->
             <p>
-              {{contact.messages[contact.messages.length-1].date.split(' ')[1]}}
+              {{contact.messages[contact.messages.length-1].date.split(' ')[1].substring(0,5)}}
             </p>
           </div>
         </div> 
-        <!-- un contatto -->
+        <!-- un contatto miniatura-->
       </div>
     </div>
 
