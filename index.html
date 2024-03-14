@@ -61,7 +61,7 @@
         <!-- un contatto -->
         <div class="col personal d-flex align-center" v-for="(contact,index) in contacts">
           <div class="icon margin-left-s">
-            <img src="assets/img/avatar_2.jpg" alt="">
+            <img :src="contact.avatar" alt="">
           </div>
           <div class="name margin-left-s">
             <p>{{contact.name}}</p>
@@ -69,120 +69,12 @@
             <p>{{contact.messages[contact.messages.length-1].message}}</p>
           </div>
           <div class="time">
+            <!-- prendo l' orario dividendo la proprietà in un arry di due stringhe usando lo spazio e mi prendo l' indice 1 -->
             <p>
               {{contact.messages[contact.messages.length-1].date.split(' ')[1]}}
             </p>
           </div>
         </div>
-        <!-- un contatto -->
-        <!-- <div class="col personal d-flex align-center">
-          <div class="icon margin-left-s">
-            <img src="assets/img/avatar_3.jpg" alt="">
-          </div>
-          <div class="name margin-left-s">
-            <p>Fabio</p>
-            <p>Lorem ipsum dolor sit amet.</p>
-          </div>
-          <div class="time">
-            <p>16:05</p>
-          </div>
-        </div>
-        <div class="col personal d-flex align-center">
-          <div class="icon margin-left-s">
-            <img src="assets/img/avatar_4.jpg" alt="">
-          </div>
-          <div class="name margin-left-s">
-            <p>Fabio</p>
-            <p>Lorem ipsum dolor sit amet.</p>
-          </div>
-          <div class="time">
-            <p>16:05</p>
-          </div>
-        </div>
-        <div class="col personal d-flex align-center">
-          <div class="icon margin-left-s">
-            <img src="assets/img/avatar_5.jpg" alt="">
-          </div>
-          <div class="name margin-left-s">
-            <p>Fabio</p>
-            <p>Lorem ipsum dolor sit amet.</p>
-          </div>
-          <div class="time">
-            <p>16:05</p>
-          </div>
-        </div>
-        <div class="col personal d-flex align-center">
-          <div class="icon margin-left-s">
-            <img src="assets/img/avatar_6.jpg" alt="">
-          </div>
-          <div class="name margin-left-s">
-            <p>Fabio</p>
-            <p>Lorem ipsum dolor sit amet.</p>
-          </div>
-          <div class="time">
-            <p>16:05</p>
-          </div>
-        </div>
-        <div class="col personal d-flex align-center">
-          <div class="icon margin-left-s">
-            <img src="assets/img/avatar_7.jpg" alt="">
-          </div>
-          <div class="name margin-left-s">
-            <p>Fabio</p>
-            <p>Lorem ipsum dolor sit amet.</p>
-          </div>
-          <div class="time">
-            <p>16:05</p>
-          </div>
-        </div>
-        <div class="col personal d-flex align-center">
-          <div class="icon margin-left-s">
-            <img src="assets/img/avatar_8.jpg" alt="">
-          </div>
-          <div class="name margin-left-s">
-            <p>Fabio</p>
-            <p>Lorem ipsum dolor sit amet.</p>
-          </div>
-          <div class="time">
-            <p>16:05</p>
-          </div>
-        </div>
-        <div class="col personal d-flex align-center">
-          <div class="icon margin-left-s">
-            <img src="assets/img/avatar_3.jpg" alt="">
-          </div>
-          <div class="name margin-left-s">
-            <p>Fabio</p>
-            <p>Lorem ipsum dolor sit amet.</p>
-          </div>
-          <div class="time">
-            <p>16:05</p>
-          </div>
-        </div>
-        <div class="col personal d-flex align-center">
-          <div class="icon margin-left-s">
-            <img src="assets/img/avatar_2.jpg" alt="">
-          </div>
-          <div class="name margin-left-s">
-            <p>Fabio</p>
-            <p>Lorem ipsum dolor sit amet.</p>
-          </div>
-          <div class="time">
-            <p>16:05</p>
-          </div>
-        </div>
-        <div class="col personal d-flex align-center">
-          <div class="icon margin-left-s">
-            <img src="assets/img/avatar_6.jpg" alt="">
-          </div>
-          <div class="name margin-left-s">
-            <p>Fabio</p>
-            <p>Lorem ipsum dolor sit amet.</p>
-          </div>
-          <div class="time">
-            <p>16:05</p>
-          </div>
-        </div> -->
       </div>
     </div>
 
@@ -190,7 +82,7 @@
       <div class="col user d-flex d-between">
         <div class="col personal d-flex align-center">
           <div class="icon margin-left-s">
-            <img src="assets/img/avatar_2.jpg" alt="">
+            <img src="img/avatar_2.jpg" alt="">
           </div>
           <div class="name margin-left-s">
             <p>Fabio</p>
