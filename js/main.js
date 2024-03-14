@@ -167,7 +167,8 @@ createApp({
             ],
         }
       ],
-      counterContact:0
+      counterContact:0,
+      newMessageSent:'',
       
     }
   },
@@ -175,6 +176,35 @@ createApp({
   methods: {
     getIdChat(index){
       this.counterContact = index
+    },
+
+    // funxione per sapere l' ora e la data dell' invio del newMessageObj
+    setDateTime(){
+      const Date = new Date();
+      
+      const day = Date.getDate();
+      const month = Date.getMonth() + 1;
+       // I mesi in JavaScript vanno da 0 a 11, quindi aggiungiamo 1
+      const year = Date.getFullYear();
+      
+      const hour = Date.getHours();
+      const minutes = Date.getMinutes();
+      
+      const fullDate = `${year}-${month < 10 ? '0' + month : month}-${day < 10 ? '0' + day : day}`;
+      
+      const fulltime = `${hour < 10 ? '0' + hour : hour}:${minutes < 10 ? '0' + minutes : minutes}`;
+      
+      return {fullDate,fulltime };
+    },
+
+
+    // creo il nuovo messaggio
+    addNewMessage(){
+      const newMessageObj = {
+        date: '10/01/2020 15:51:00',
+        message: 'OK!!',
+        status: 'received'
+      }
     },
 
   },
