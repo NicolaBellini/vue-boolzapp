@@ -65,10 +65,13 @@
           </div>
           <div class="name margin-left-s">
             <p>{{contact.name}}</p>
+            <!-- prendo l ultimo messaggio ad indice .length-1 -->
             <p>{{contact.messages[contact.messages.length-1].message}}</p>
           </div>
           <div class="time">
-            <p>16:05</p>
+            <p>
+              {{contact.messages[contact.messages.length-1].date.split(' ')[1]}}
+            </p>
           </div>
         </div>
         <!-- un contatto -->
