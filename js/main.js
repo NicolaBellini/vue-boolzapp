@@ -169,6 +169,19 @@ createApp({
       ],
       counterContact:0,
       newMessageSent:'',
+      botAnswers: [
+        "Va bene, ci vediamo più tardi!",
+        "Sì, capito, nessun problema!",
+        "Non preoccuparti, lo farò sicuramente.",
+        "Oh, interessante! Dimmi di più.",
+        "Wow, davvero? Che notizia fantastica!",
+        "Oh, mi dispiace sentirlo. Spero migliori presto.",
+        "Hai ragione, dovremmo assolutamente farlo insieme.",
+        "Capisco completamente, non ti preoccupare.",
+        "Beh, dipende. Dobbiamo pensarci meglio.",
+        "Ah, non lo sapevo! Grazie per l'informazione."
+      ],
+      counterBotAnswer:0,
       
     }
   },
@@ -211,11 +224,13 @@ createApp({
        setTimeout(() => {
         const newMessageObjReceived = {
           date: this.setDateTime(),
-          message: 'ok',
+          message: this.botAnswers[this.counterBotAnswer],
           status: 'received'
         }
         this.contacts[this.counterContact].messages.push(newMessageObjReceived);
-        this.newMessageSent='';
+        this.counterBotAnswer++
+
+       
         
        }, 1000); 
       
