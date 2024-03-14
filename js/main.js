@@ -242,6 +242,10 @@ createApp({
        }, 1000); 
     },
 
+    deleteMessage(index){
+        this.contacts[this.counterContact].messages.splice(index,1)
+    }
+
     // searchingUserInMiniature(){
     //   if (!this.serchedNameInput.includes(searchedName())) {
     //     return 'class="hidden"'
