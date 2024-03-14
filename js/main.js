@@ -181,6 +181,7 @@ createApp({
 
   computed:{
     sentMessages() {
+     
       return this.contacts[this.counterContact].messages.filter(message => message.status === 'sent');
     }
   },

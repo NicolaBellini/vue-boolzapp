@@ -108,7 +108,7 @@
       <!-- contatto sopra la chat -->
       <div class="col lecture d-flex d-column">
      
-        <div class="col message d-flex active" v-for="(message, index) in sentMessages">
+        <div class="col message d-flex" v-for="(message, index) in contacts[counterContact].messages" :class="{ 'active': sentMessages.includes(message) }">
           <div class="col text margin-left-m margin-right-m d-flex">
            
             <!-- messaggio -->
@@ -186,7 +186,7 @@
          
         </div>
 
-        <div class="col message d-flex">
+        <!-- <div class="col message d-flex">
           <div class="col text margin-left-m margin-right-m d-flex">
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe quod veritatis culpa fuga iusto necessitatibus ducimus aut tempora! Impedit nulla magnam libero, accusantium deserunt voluptas doloribus omnis sapiente dolorum minima molestiae itaque aliquam ullam nam eligendi temporibus nesciunt enim quaerat.</p>
             <div class="col chevron">
@@ -253,7 +253,7 @@
               <span>16:13</span>
             </div>
           </div>
-        </div>
+        </div> -->
 
       </div>
       
