@@ -10,6 +10,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
 
+  <!-- vue 3.js -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
   <link rel="stylesheet" href="css/style.css">
 
   <title>Boolzapp</title>
@@ -17,12 +20,12 @@
 </head>
 
 
-<body>
+<body id="app">
 
   <div class="row d-flex">
     <div class="col left d-flex d-column">
       <div class="col profile d-flex d-between align-center">
-
+<!-- colonna grigia di sinistra sopra  -->
         <div class="col icon  margin-left-s">
           <img src="assets/img/avatar_io.jpg" alt="">
         </div>
@@ -31,8 +34,8 @@
           <i class="fa-solid fa-message"></i>
           <i class="fa-solid fa-ellipsis-vertical"></i>
         </div>
-
       </div>
+<!-- campanella -->
       <div class="col noti d-flex align-center">
         <div class="col bell d-flex d-center align-center margin-left-s">
           <i class="fa-solid fa-bell-slash"></i>
@@ -42,6 +45,7 @@
           <a href="">Attiva notifiche dekstop</a>
         </div>
       </div>
+<!-- input di ricerca -->
       <div class="col input d-flex d-center align-center">
         <div class="container d-flex">
           <div class="magnifying d-flex align-center d-center">
@@ -52,20 +56,23 @@
           </div>
         </div>
       </div>
+<!-- colonna chat -->
       <div class="col chat">
-        <div class="col personal d-flex align-center">
+        <!-- un contatto -->
+        <div class="col personal d-flex align-center" v-for="(contact,index) in contacts">
           <div class="icon margin-left-s">
             <img src="assets/img/avatar_2.jpg" alt="">
           </div>
           <div class="name margin-left-s">
-            <p>Fabio</p>
-            <p>Lorem ipsum dolor sit amet.</p>
+            <p>{{contact.name}}</p>
+            <p>{{contact.messages[contact.messages.length-1].message}}</p>
           </div>
           <div class="time">
             <p>16:05</p>
           </div>
         </div>
-        <div class="col personal d-flex align-center">
+        <!-- un contatto -->
+        <!-- <div class="col personal d-flex align-center">
           <div class="icon margin-left-s">
             <img src="assets/img/avatar_3.jpg" alt="">
           </div>
@@ -172,7 +179,7 @@
           <div class="time">
             <p>16:05</p>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
 
@@ -352,7 +359,9 @@
     </div>
   </div>
 
+  
 </body>
 
+<script src="js/main.js"></script>
 
 </html>
