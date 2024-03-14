@@ -87,7 +87,8 @@
     <div class="col right d-flex d-column">
       <!-- contatto sopra la chat -->
       <!-- ne stampo tutti con il v-for e poi con il counter metto quello cliccato -->
-      <div class="col user d-flex d-between" v-for="(contact, index) in contacts">
+      <div class="col user d-flex d-between" v-for="(contact, index) in contacts" :class="{'hidden':index!==counterContact}">
+        <!-- qua do la classe hidden se l indice non corrisponde al counteContact -->
         <div class="col personal d-flex align-center">
           <div class="icon margin-left-s">
             <img src="img/avatar_2.jpg" alt="">

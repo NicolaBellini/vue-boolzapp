@@ -524,3 +524,7 @@ border: 1px solid var(--header);
     width: 100%;
   }
 }
+
+.hidden{
+  display:none
+}
