@@ -166,10 +166,19 @@ createApp({
                 }
             ],
         }
-      ]
+      ],
+      counterContact:0
       
     }
   },
+
+  methods: {
+    getIdChat(index){
+      this.counterContact = index
+    },
+    
+  },
+
   mounted() {
     console.log(this.contacts,'ciao');
   },
