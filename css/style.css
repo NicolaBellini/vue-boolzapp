@@ -324,6 +324,8 @@ border: 1px solid var(--header);
   width: 65%;
   padding: 20px 20px 35px 15px;
   position: relative;
+  display: flex;
+  justify-content: space-between;
 }
 
 .text .time{
@@ -336,17 +338,39 @@ border: 1px solid var(--header);
 }
 
 .message .chevron i{
-  font-size: .7rem;
+  font-size: 1rem;
 }
 
 .hidden-menu{
+  position: absolute;
+  left: 60%;
+  height: 100px;
+  width: 200px;
   display: none;
   border-radius: 5px;
   background-color: var(--white);
+  border-radius: 10px;
+}
+
+.hidden-menu>div{
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(174, 167, 167);
+}
+
+.hidden-menu .delete{
+  border-bottom: 1px solid grey;
+  
+}
+
+.hidden-menu>div:hover{
+  background-color: rgb(231, 231, 231);
 }
 
 .chevron:hover .hidden-menu{
-  z-index: 2;
+  z-index: 1;
   display: block;
   position: absolute;
   top: 40px;

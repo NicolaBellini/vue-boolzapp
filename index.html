@@ -68,6 +68,7 @@
             class="col personal d-flex align-center"
             v-for="(contact,index) in filteredContacts"
             >
+            <!-- faccio il vfor nella lista di nomi scremata se isSearched è true, attivandolo al click della lente d' ingrandimento -->
             <div class="icon margin-left-s">
               <img :src="contact.avatar" alt="">
             </div>
@@ -153,8 +154,11 @@
             <div class="col chevron">
               <i class="fa-solid fa-chevron-down"></i>
               <div class="hidden-menu">
-                <ul>
-                  <div class="emoji d-flex d-around ">
+                <div class="delete">delete</div>
+                <div class="info">informazioni</div>
+                <!-- <ul>
+                  <li>ciao</li> -->
+                  <!-- <div class="emoji d-flex d-around ">
                     <i class="fa-solid fa-thumbs-up"></i>
                     <i class="fa-solid fa-heart"></i>
                     <i class="fa-solid fa-face-grin-tears"></i>
@@ -207,7 +211,7 @@
                       </a>
                     </li>
                   </div>
-                </ul>
+                </ul> -->
               </div>
             </div>
             <!-- hidden menu -->
