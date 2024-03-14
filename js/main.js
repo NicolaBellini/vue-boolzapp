@@ -206,6 +206,7 @@ createApp({
         status: 'sent'
       }
       this.contacts[this.counterContact].messages.push(newMessageObj);
+      this.newMessageSent='';
     },
 
   },
