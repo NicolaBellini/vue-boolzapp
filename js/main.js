@@ -176,7 +176,13 @@ createApp({
     getIdChat(index){
       this.counterContact = index
     },
-    
+
+  },
+
+  computed:{
+    sentMessages() {
+      return this.contacts[this.counterContact].messages.filter(message => message.status === 'sent');
+    }
   },
 
   mounted() {
