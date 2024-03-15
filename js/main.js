@@ -189,6 +189,7 @@ createApp({
     //   isInpuFocus:false
         searchInput: '',
         isSearched:false,
+        isChevronClicked:false
       
     }
   },
@@ -244,7 +245,21 @@ createApp({
 
     deleteMessage(index){
         this.contacts[this.counterContact].messages.splice(index,1)
-    }
+    },
+
+     chevronAppear(index){
+         if(this.isChevronClicked){
+             return ''
+         }else{
+             return 'hidden'
+         }
+     },
+    chevronAppear(index) {
+        return this.isChevronClicked[index];
+    },
+    toggleChevron(index) {
+        this.isChevronClicked[index] = !this.isChevronClicked[index];
+    },
 
     // searchingUserInMiniature(){
     //   if (!this.serchedNameInput.includes(searchedName())) {

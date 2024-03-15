@@ -346,7 +346,7 @@ border: 1px solid var(--header);
   left: 60%;
   height: 100px;
   width: 200px;
-  display: none;
+  /* display: none; */
   border-radius: 5px;
   background-color: var(--white);
   border-radius: 10px;
@@ -362,7 +362,7 @@ border: 1px solid var(--header);
 
 .hidden-menu .delete{
   border-bottom: 1px solid grey;
-  
+  margin: 0 10px;
 }
 
 .hidden-menu>div:hover{

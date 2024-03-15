@@ -53,7 +53,7 @@
           </div> 
           <div class="search d-flex align-center">
             <input type="text" placeholder="Cerca o inizia una nuova chat"
-            v-model.trim="searchInput">
+            v-model.trim="searchInput" @focus="isSearched=true">
           </div>
         </div>
       </div>
@@ -151,9 +151,9 @@
             <!-- messaggio -->
             
             <!-- hidden menu -->
-            <div class="col chevron">
+            <div class="col chevron" @click="toggleChevron(index)">
               <i class="fa-solid fa-chevron-down"></i>
-              <div class="hidden-menu">
+              <div class="hidden-menu" :class="{'hidden': !chevronAppear(index)}" >
                 <div class="delete" @click="deleteMessage(index)">delete</div>
                 <div class="info">informazioni</div>
                 <!-- <ul>
