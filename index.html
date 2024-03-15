@@ -151,9 +151,9 @@
             <!-- messaggio -->
             
             <!-- hidden menu -->
-            <div class="col chevron" @click="isDisplayedHiddenMenu = !isDisplayedHiddenMenu, chevronIdGetter(index) ">
+            <div class="col chevron" @click="isDisplayedHiddenMenu = !isDisplayedHiddenMenu, chevronIdGetter(index),  IsMouseEnterChevron=true">
               <i class="fa-solid fa-chevron-down"></i>
-              <div class="display-block hidden-menu" v-if="isDisplayedHiddenMenu && currentChevron===index" >
+              <div class="display-block hidden-menu" v-if="isDisplayedHiddenMenu && currentChevron===index" @mouseleave="closeHiddenMenu()">
                 <div class="delete" @click="deleteMessage(index)">delete</div>
                 <div class="info">informazioni</div>
                 <!-- <ul>

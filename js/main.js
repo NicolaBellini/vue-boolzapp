@@ -191,7 +191,8 @@ createApp({
         isSearched:false,
         isChevronClicked:false,
         isDisplayedHiddenMenu:false,
-        currentChevron: null
+        currentChevron: null,
+        IsMouseEnterChevron:true
       
     }
   },
@@ -251,8 +252,13 @@ createApp({
 
     chevronIdGetter(index){
         return this.currentChevron= index
-    }
+    },
 
+    closeHiddenMenu(){
+        if(this.IsMouseEnterChevron===true){
+            this.isDisplayedHiddenMenu=false  
+        }
+    }
  
 
  
