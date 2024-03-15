@@ -254,6 +254,7 @@ createApp({
              return 'hidden'
          }
      },
+     
     chevronAppear(index) {
         return this.isChevronClicked[index];
     },
