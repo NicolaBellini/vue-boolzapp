@@ -20,154 +20,160 @@
 </head>
 
 
-<body id="app">
-
-  <div class="row d-flex">
-    <div class="col left d-flex d-column">
-      <div class="col profile d-flex d-between align-center">
-<!-- colonna grigia di sinistra sopra  -->
-        <div class="col icon  margin-left-s">
-          <img src="img/avatar_io.jpg" alt="">
-        </div>
-        <div class="col action d-flex d-between margin-right-m">
-          <i class="fa-solid fa-circle-notch"></i>
-          <i class="fa-solid fa-message"></i>
-          <i class="fa-solid fa-ellipsis-vertical"></i>
-        </div>
-      </div>
-<!-- campanella -->
-      <div class="col noti d-flex align-center">
-        <div class="col bell d-flex d-center align-center margin-left-s">
-          <i class="fa-solid fa-bell-slash"></i>
-        </div>
-        <div class="col noti-text margin-left-s">
-          <p>Ricevi notifiche di nuovi messaggi</p>
-          <a href="">Attiva notifiche dekstop</a>
-        </div>
-      </div>
-<!-- input di ricerca -->
-      <div class="col input d-flex d-center align-center">
-        <div class="container d-flex">
-          <div class="magnifying d-flex align-center d-center">
-            <i class="fa-solid fa-magnifying-glass" @click="isSearched=true"></i>
-          </div> 
-          <div class="search d-flex align-center">
-            <input type="text" placeholder="Cerca o inizia una nuova chat"
-            v-model.trim="searchInput" @focus="isSearched=true">
+<body id="app" >
+  <div :class="{'darkmode': isDarkModeActive}">
+    <div class="row d-flex">
+      <div class="col left d-flex d-column">
+        <div class="col profile d-flex d-between align-center">
+  <!-- colonna grigia di sinistra sopra  -->
+          <div class="col icon  margin-left-s">
+            <img src="img/avatar_io.jpg" alt="">
+          </div>
+        
+          <div class="col action d-flex d-between margin-right-m">
+            <i class="fa-solid fa-circle-notch"></i>
+            <i class="fa-solid fa-message"></i>
+            <i class="fa-solid fa-ellipsis-vertical"></i>
           </div>
         </div>
+  <!-- campanella -->
+        <div class="col noti d-flex align-center">
+          <div class="col bell d-flex d-center align-center margin-left-s">
+            <i class="fa-solid fa-bell-slash"></i>
+          </div>
+          <div class="col noti-text margin-left-s">
+            <p>Ricevi notifiche di nuovi messaggi</p>
+            <a href="">Attiva notifiche dekstop</a>
+          </div>
+        </div>
+  <!-- input di ricerca -->
+        <div class="col input d-flex d-center align-center">
+          <div class="container d-flex">
+            <div class="magnifying d-flex align-center d-center">
+              <i class="fa-solid fa-magnifying-glass" @click="isSearched=true"></i>
+            </div> 
+            <div class="search d-flex align-center">
+              <input type="text" placeholder="Cerca o inizia una nuova chat"
+              v-model.trim="searchInput" @focus="isSearched=true">
+            </div>
+          </div>
+        </div>
+  <!-- colonna chat -->
+        <div class="col chat">
+
+
+          <!-- un contatto miniatura -->
+          <div v-if="">
+            <div
+              @click="getIdChat(index), console.log(counterContact)"
+              class="col personal d-flex align-center"
+              v-for="(contact,index) in filteredContacts"
+              >
+              <!-- faccio il vfor nella lista di nomi scremata se isSearched è true, attivandolo al click della lente d' ingrandimento -->
+              <div class="icon margin-left-s">
+                <img :src="contact.avatar" alt="">
+              </div>
+              <div class="name margin-left-s">
+                <p>{{contact.name}}</p>
+                <!-- prendo l ultimo messaggio ad indice .length-1 -->
+                <p class="margin-rigth-s">{{contact.messages[contact.messages.length-1].message}}</p>
+              </div>
+              <div class="time">
+                <!-- prendo l' orario dividendo la proprietà in un arry di due stringhe usando lo spazio e mi prendo l' indice 1 -->
+                <p>
+                  {{contact.messages[contact.messages.length-1].date.split(' ')[1].substring(0,5)}}
+                </p>
+              </div>
+            </div> 
+          </div>
+          <!-- un contatto miniatura-->
+
+        </div>
       </div>
-<!-- colonna chat -->
-      <div class="col chat">
 
-
-        <!-- un contatto miniatura -->
-        <div v-if="">
-          <div
-            @click="getIdChat(index), console.log(counterContact)"
-            class="col personal d-flex align-center"
-            v-for="(contact,index) in filteredContacts"
-            >
-            <!-- faccio il vfor nella lista di nomi scremata se isSearched è true, attivandolo al click della lente d' ingrandimento -->
+      <div class="col right d-flex d-column">
+        <!-- contatto sopra la chat -->
+        <!-- ne stampo tutti con il v-for e poi con il counter metto quello cliccato -->
+        <div class="col user d-flex d-between" v-for="(contact, index) in contacts" :class="{'hidden':index!==counterContact}">
+          <!-- qua do la classe hidden se l indice non corrisponde al counteContact -->
+          <div class="col personal d-flex align-center">
             <div class="icon margin-left-s">
               <img :src="contact.avatar" alt="">
             </div>
             <div class="name margin-left-s">
               <p>{{contact.name}}</p>
-              <!-- prendo l ultimo messaggio ad indice .length-1 -->
-              <p class="margin-rigth-s">{{contact.messages[contact.messages.length-1].message}}</p>
+              <!-- qua ho fatto una rierca e con .substring uso solo le parti della stringa che mi servono -->
+              <p>Ultimo accesso oggi alle  {{ contact.messages[contact.messages.length-1].date.split(' ')[1].substring(0, 5) }}</p>
             </div>
-            <div class="time">
-              <!-- prendo l' orario dividendo la proprietà in un arry di due stringhe usando lo spazio e mi prendo l' indice 1 -->
-              <p>
-                {{contact.messages[contact.messages.length-1].date.split(' ')[1].substring(0,5)}}
-              </p>
-            </div>
-          </div> 
-        </div>
-        <!-- un contatto miniatura-->
-
-      </div>
-    </div>
-
-    <div class="col right d-flex d-column">
-      <!-- contatto sopra la chat -->
-      <!-- ne stampo tutti con il v-for e poi con il counter metto quello cliccato -->
-      <div class="col user d-flex d-between" v-for="(contact, index) in contacts" :class="{'hidden':index!==counterContact}">
-        <!-- qua do la classe hidden se l indice non corrisponde al counteContact -->
-        <div class="col personal d-flex align-center">
-          <div class="icon margin-left-s">
-            <img :src="contact.avatar" alt="">
           </div>
-          <div class="name margin-left-s">
-            <p>{{contact.name}}</p>
-            <!-- qua ho fatto una rierca e con .substring uso solo le parti della stringa che mi servono -->
-            <p>Ultimo accesso oggi alle  {{ contact.messages[contact.messages.length-1].date.split(' ')[1].substring(0, 5) }}</p>
+          <div class="action d-flex align-center d-between margin-right-s">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <i class="fa-solid fa-paperclip"></i>
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+              <!-- bottone darkmode -->
+            <div class="darkModeBtn" @click="activateDarkMode(), console.log(isDarkModeActive)">
+
+            </div>
+            <!-- bottone darkmode -->
           </div>
         </div>
-        <div class="action d-flex align-center d-between margin-right-s">
-          <i class="fa-solid fa-magnifying-glass"></i>
-          <i class="fa-solid fa-paperclip"></i>
-          <i class="fa-solid fa-ellipsis-vertical"></i>
-        </div>
-      </div>
-      <!-- contatto sopra la chat -->
-      <div class="col lecture d-flex d-column">
-     
-        <div
-          class="col message d-flex"
-          v-for="(message, index) in contacts[counterContact].messages"
-          :class="{ 'active': sentMessages.includes(message) }">
-           <!-- qua gli dico che se il messaggio è presente nella computed sentmessages gli va attribuita la classe active -->
-          <div class="col text margin-left-m margin-right-m d-flex">
-           
-            <!-- messaggio -->
-            <!-- qua stampo il messaggio dentro al dato messsage ottenuto dalla computed sentMessages() -->
-            <p>{{message.message}}</p>
-            <!-- messaggio -->
-            
-            <!-- hidden menu -->
-            <div class="col chevron" @click="isDisplayedHiddenMenu = !isDisplayedHiddenMenu, chevronIdGetter(index),  IsMouseEnterChevron=true">
-              <i class="fa-solid fa-chevron-down"></i>
-              <div class="display-block hidden-menu" v-if="isDisplayedHiddenMenu && currentChevron===index" @mouseleave="closeHiddenMenu()">
-                <div class="delete" @click="deleteMessage(index)">delete</div>
-                <div class="info">informazioni</div>
-         
-              </div>
-            </div>
-            <!-- hidden menu -->
-            <div class="time">
-              <span>{{message.date.split(' ')[1].substring(0,5)}}</span>
-            </div>
-            
-          </div>
-          
-         
-        </div>
-
-       
-
-      </div>
+        <!-- contatto sopra la chat -->
+        <div class="col lecture d-flex d-column">
       
-      <div class="col write d-flex">
-        <div class="col emoji d-flex align-center d-center">
-          <i class="fa-regular fa-face-smile"></i>
+          <div
+            class="col message d-flex"
+            v-for="(message, index) in contacts[counterContact].messages"
+            :class="{ 'active': sentMessages.includes(message) }">
+            <!-- qua gli dico che se il messaggio è presente nella computed sentmessages gli va attribuita la classe active -->
+            <div class="col text margin-left-m margin-right-m d-flex">
+            
+              <!-- messaggio -->
+              <!-- qua stampo il messaggio dentro al dato messsage ottenuto dalla computed sentMessages() -->
+              <p>{{message.message}}</p>
+              <!-- messaggio -->
+              
+              <!-- hidden menu -->
+              <div class="col chevron" @click="isDisplayedHiddenMenu = !isDisplayedHiddenMenu, chevronIdGetter(index),  IsMouseEnterChevron=true">
+                <i class="fa-solid fa-chevron-down"></i>
+                <div class="display-block hidden-menu" v-if="isDisplayedHiddenMenu && currentChevron===index" @mouseleave="closeHiddenMenu()">
+                  <div class="delete" @click="deleteMessage(index)">delete</div>
+                  <div class="info">informazioni</div>
+          
+                </div>
+              </div>
+              <!-- hidden menu -->
+              <div class="time">
+                <span>{{message.date.split(' ')[1].substring(0,5)}}</span>
+              </div>
+              
+            </div>
+            
+          
+          </div>
+
+        
+
         </div>
-        <div class="insert d-flex align-center">
-          <input
-            type="text"
-            placeholder="Scrivi un messaggio"
-            v-model="newMessageSent"
-            @keyUp.enter="addNewMessage(), console.log(contacts)">
-        </div>
-        <div class="vocal d-flex align-center d-center">
-          <i class="fa-solid fa-microphone"></i>
+        
+        <div class="col write d-flex">
+          <div class="col emoji d-flex align-center d-center">
+            <i class="fa-regular fa-face-smile"></i>
+          </div>
+          <div class="insert d-flex align-center">
+            <input
+              type="text"
+              placeholder="Scrivi un messaggio"
+              v-model="newMessageSent"
+              @keyUp.enter="addNewMessage(), console.log(contacts)">
+          </div>
+          <div class="vocal d-flex align-center d-center">
+            <i class="fa-solid fa-microphone"></i>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  
+  </div>
 </body>
 
 <script type="module" src="js/main.js"></script>

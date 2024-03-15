@@ -28,14 +28,18 @@ createApp({
       isChevronClicked:false,
       isDisplayedHiddenMenu:false,
       currentChevron: null,
-      IsMouseEnterChevron:true
+      IsMouseEnterChevron:true,
+      isDarkModeActive:false,
 
 
     
     }
   },
 
+
+
   methods: {
+
     getIdChat(index){
       this.counterContact = index
     },
@@ -96,6 +100,9 @@ createApp({
         if(this.IsMouseEnterChevron===true){
             this.isDisplayedHiddenMenu=false  
         }
+    },
+    activateDarkMode(){
+      this.isDarkModeActive = !this.isDarkModeActive
     }
  
 

@@ -181,6 +181,17 @@ i{
   height: 70px;
 }
 
+.darkModeBtn{
+  background-color: red;
+  height: 20px;
+  width: 20px;
+  margin: 4px;
+  /* display: none; */
+  border-radius: 5px;
+  outline: 4px solid blue;
+  cursor: pointer;
+}
+
 .col.action{
   width: 90px;
 }
