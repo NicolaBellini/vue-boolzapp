@@ -343,7 +343,7 @@ border: 1px solid var(--header);
 
 .hidden-menu{
   position: absolute;
-  left: 60%;
+  right: 10px;
   height: 100px;
   width: 200px;
   /* display: none; */
@@ -358,11 +358,12 @@ border: 1px solid var(--header);
   justify-content: center;
   align-items: center;
   color: rgb(174, 167, 167);
+  margin: 0 10px;
 }
 
 .hidden-menu .delete{
   border-bottom: 1px solid grey;
-  margin: 0 10px;
+
 }
 
 .hidden-menu>div:hover{
@@ -378,15 +379,15 @@ border: 1px solid var(--header);
   animation: apparition .13s;
 }
 
-
+/* 
 .hidden-menu li{
-  margin: 10px 10px 5px 10px;
+  margin: 10px 10px 5px 10px; */
   /* border-bottom: 1px solid #b7babc; */
-  list-style: none;
+  /* list-style: none;
   color: var(--icons);
-}
+} */
 
-.menu-section{
+/* .menu-section{
   border-bottom: 1px solid var(--menu-hr);
 }
 
@@ -402,9 +403,9 @@ border: 1px solid var(--header);
   height: 20px;
   width: 19px;
   padding: 3px;
-}
+} */
 
-.hidden-menu .plus i{
+/* .hidden-menu .plus i{
   font-size: .6rem;
 }
 
@@ -422,7 +423,7 @@ border: 1px solid var(--header);
 .hidden-menu i:hover,
 .hidden-menu a:hover{
   color:var(--hidden-hover);
-}
+} */
 
 
 .hidden-menu a{
