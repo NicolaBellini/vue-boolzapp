@@ -190,7 +190,8 @@ createApp({
         searchInput: '',
         isSearched:false,
         isChevronClicked:false,
-        isDisplayedHiddenMenu:false
+        isDisplayedHiddenMenu:false,
+        currentChevron: null
       
     }
   },
@@ -248,20 +249,13 @@ createApp({
         this.contacts[this.counterContact].messages.splice(index,1)
     },
 
-     chevronAppear(index){
-         if(this.isChevronClicked){
-             return ''
-         }else{
-             return 'hidden'
-         }
-     },
+    chevronIdGetter(index){
+        return this.currentChevron= index
+    }
 
-    chevronAppear(index) {
-        return this.isChevronClicked[index];
-    },
-    toggleChevron(index) {
-        this.isChevronClicked[index] = !this.isChevronClicked[index];
-    },
+ 
+
+ 
 
     // searchingUserInMiniature(){
     //   if (!this.serchedNameInput.includes(searchedName())) {
