@@ -86,31 +86,7 @@
           </div> 
         </div>
         <!-- un contatto miniatura-->
-<!-- 
-        questo div appare se l' utenete è cercato nell' input
-          <div v-else>
-            <div
-            @click="getIdChat(index), console.log(counterContact)"
-            class="col personal d-flex align-center"
-            v-for="(contact,index) in searchedContacts"
-            :key="contact.name"
-          >
-            <div class="icon margin-left-s">
-              <img :src="contact.avatar" alt="">
-            </div>
-            <div class="name margin-left-s">
-              <p>{{contact.name}}</p>
-              prendo l ultimo messaggio ad indice .length-1
-              <p class="margin-rigth-s">{{contact.messages[contact.messages.length-1].message}}</p>
-            </div>
-            <div class="time">
-              prendo l' orario dividendo la proprietà in un arry di due stringhe usando lo spazio e mi prendo l' indice 1
-              <p>
-                {{contact.messages[contact.messages.length-1].date.split(' ')[1].substring(0,5)}}
-              </p>
-            </div>
-          </div> 
-        </div> -->
+
       </div>
     </div>
 
@@ -156,62 +132,7 @@
               <div class="display-block hidden-menu" v-if="isDisplayedHiddenMenu && currentChevron===index" @mouseleave="closeHiddenMenu()">
                 <div class="delete" @click="deleteMessage(index)">delete</div>
                 <div class="info">informazioni</div>
-                <!-- <ul>
-                  <li>ciao</li> -->
-                  <!-- <div class="emoji d-flex d-around ">
-                    <i class="fa-solid fa-thumbs-up"></i>
-                    <i class="fa-solid fa-heart"></i>
-                    <i class="fa-solid fa-face-grin-tears"></i>
-                    <i class="fa-solid fa-face-surprise"></i>
-                    <i class="fa-solid fa-face-sad-tear"></i>
-                    <i class="fa-solid fa-hands-praying"></i>
-                    <div class="plus d-flex d-center align-center">
-                      <i class="fa-solid fa-plus"></i>
-                    </div>
-                  </div>
-                  <div class="menu-section">
-                    <li>
-                      <a href="">
-                        <i class="fa-solid fa-share"></i>&nbsp;Rispondi
-                      </a>
-                    </li>
-                    <li>
-                      <a href="">
-                        <i class="fa-regular fa-copy"></i>&nbsp;Copia
-                      </a>
-                    </li>
-                    <li>
-                      <a href="">
-                        <i class="fa-solid fa-floppy-disk"></i>&nbsp;salva con nome
-                      </a>
-                    </li>
-                  </div>
-                  <div class="menu-section">
-                    <li>
-                      <a href="">
-                        <i class="fa-regular fa-share-from-square"></i>&nbsp;Inoltra
-                      </a>
-                    </li>
-                    <li>
-                      <a href="">
-                        <i class="fa-regular fa-star"></i>&nbsp;importante
-                      </a>
-                    </li>
-                    <li>
-                      <a href="">
-                        <i class="fa-solid fa-trash-can"></i>&nbsp;Elimina per me
-                      </a>
-                    </li>
-                   
-                  </div>
-                  <div class="menu-section">
-                    <li>
-                      <a href="">
-                        <i class="fa-regular fa-square-check"></i>&nbsp;Seleziona
-                      </a>
-                    </li>
-                  </div>
-                </ul> -->
+         
               </div>
             </div>
             <!-- hidden menu -->
@@ -249,6 +170,6 @@
   
 </body>
 
-<script src="js/main.js"></script>
+<script type="module" src="js/main.js"></script>
 
 </html>
