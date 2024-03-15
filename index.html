@@ -151,9 +151,9 @@
             <!-- messaggio -->
             
             <!-- hidden menu -->
-            <div class="col chevron" @click="toggleChevron(index)">
+            <div class="col chevron" @click="isDisplayedHiddenMenu = !isDisplayedHiddenMenu">
               <i class="fa-solid fa-chevron-down"></i>
-              <div class="hidden-menu" :class="{'hidden': !chevronAppear(index)}" >
+              <div class="display-block hidden-menu" v-if="isDisplayedHiddenMenu" >
                 <div class="delete" @click="deleteMessage(index)">delete</div>
                 <div class="info">informazioni</div>
                 <!-- <ul>

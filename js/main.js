@@ -189,7 +189,8 @@ createApp({
     //   isInpuFocus:false
         searchInput: '',
         isSearched:false,
-        isChevronClicked:false
+        isChevronClicked:false,
+        isDisplayedHiddenMenu:false
       
     }
   },
@@ -254,7 +255,7 @@ createApp({
              return 'hidden'
          }
      },
-     
+
     chevronAppear(index) {
         return this.isChevronClicked[index];
     },

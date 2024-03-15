@@ -336,9 +336,18 @@ border: 1px solid var(--header);
   bottom: 5px;
   right: 10px;
 }
+.chevron{
+  height: 20px;
+  width: 20px;
+}
 
-.message .chevron i{
+.chevron i{
   font-size: 1rem;
+  display: none;
+}
+
+.chevron:hover i{
+  display: block;
 }
 
 .hidden-menu{
@@ -370,7 +379,8 @@ border: 1px solid var(--header);
   background-color: rgb(231, 231, 231);
 }
 
-.chevron:hover .hidden-menu{
+/* gestisce l' apparizione del menu */
+.display-block{
   z-index: 1;
   display: block;
   position: absolute;
