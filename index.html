@@ -68,6 +68,7 @@
               @click="getIdChat(index), console.log(counterContact)"
               class="col personal d-flex align-center"
               v-for="(contact,index) in filteredContacts"
+              v-show="contact.visible"
               >
               <!-- faccio il vfor nella lista di nomi scremata se isSearched è true, attivandolo al click della lente d' ingrandimento -->
               <div class="icon margin-left-s">

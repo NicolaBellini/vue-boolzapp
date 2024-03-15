@@ -29,7 +29,7 @@ createApp({
       isDisplayedHiddenMenu:false,
       currentChevron: null,
       IsMouseEnterChevron:true,
-      isDarkModeActive:false,
+      isDarkModeActive:true,
 
 
     
@@ -121,12 +121,17 @@ createApp({
     },
 
     filteredContacts(){
-        if(this.isSearched){
-            return this.contacts.filter(contact => contact.name.toLowerCase().includes(this.searchInput.toLowerCase()))
-        }
-        return this.contacts
-      }
+      this.contacts.forEach(element=>{
+        if(element.name.toLowerCase().includes(this.searchInput.toLowerCase())){ 
+          element.visible=true;
+        }else{
+          element.visible=false;
+        };
 
+      })
+      return this.contacts;
+    },
+     
   },
 
   mounted() {
