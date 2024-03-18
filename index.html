@@ -36,8 +36,8 @@
             <i class="fa-solid fa-ellipsis-vertical"></i>
             <!-- bottone darkmode -->
             <div class="darkModeBtn" @click="activateDarkMode(), console.log(isDarkModeActive)">
-              <i class="fa-solid fa-sun" v-if="isDarkModeActive"></i>
-              <i class="fa-solid fa-moon" v-if="!isDarkModeActive"></i>
+              <i class="fa-solid fa-sun" v-if="isDarkModeActive" title="light-mode"></i>
+              <i class="fa-solid fa-moon" v-if="!isDarkModeActive" title="dark-mode"></i>
 
             </div>
             <!-- bottone darkmode -->  
@@ -168,7 +168,8 @@
               type="text"
               placeholder="Scrivi un messaggio"
               v-model="newMessageSent"
-              @keyUp.enter="addNewMessage(), console.log(contacts)">
+              @keyUp.enter="addNewMessage(), console.log(contacts)"
+              >
           </div>
           <div class="vocal d-flex align-center d-center">
             <i class="fa-solid fa-microphone"></i>
