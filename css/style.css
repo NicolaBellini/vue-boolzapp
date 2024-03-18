@@ -182,13 +182,13 @@ i{
 }
 
 .darkModeBtn{
-  background-color: red;
+
   height: 20px;
   width: 20px;
-  margin: 4px;
+
   /* display: none; */
   border-radius: 5px;
-  outline: 4px solid blue;
+
   cursor: pointer;
 }
 
@@ -400,51 +400,6 @@ border: 1px solid var(--header);
   animation: apparition .13s;
 }
 
-/* 
-.hidden-menu li{
-  margin: 10px 10px 5px 10px; */
-  /* border-bottom: 1px solid #b7babc; */
-  /* list-style: none;
-  color: var(--icons);
-} */
-
-/* .menu-section{
-  border-bottom: 1px solid var(--menu-hr);
-}
-
-.hidden-menu .emoji{
-  width: 100%;
-  border-bottom: 1px solid var(--menu-hr);
-}
-
-.hidden-menu .plus{
-  background-color: var(--menu-hr);
-  border-radius: 50%;
-  margin: 10px;
-  height: 20px;
-  width: 19px;
-  padding: 3px;
-} */
-
-/* .hidden-menu .plus i{
-  font-size: .6rem;
-}
-
-
-.hidden-menu .emoji i{
-  font-size: 1.2rem;
-  margin: 10px;
-  color: var(--emoji);
-}
-
-.hidden-menu .menu-section i{
-  font-size: 1.2rem;
-}
-
-.hidden-menu i:hover,
-.hidden-menu a:hover{
-  color:var(--hidden-hover);
-} */
 
 
 .hidden-menu a{

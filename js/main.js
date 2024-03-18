@@ -24,12 +24,11 @@ createApp({
       ],
       counterBotAnswer:0,
       searchInput: '',
-      isSearched:false,
       isChevronClicked:false,
       isDisplayedHiddenMenu:false,
       currentChevron: null,
       IsMouseEnterChevron:true,
-      isDarkModeActive:true,
+      isDarkModeActive:false,
 
 
     
@@ -135,7 +134,7 @@ createApp({
   },
 
   mounted() {
-    console.log(this.contacts,'ciao', this.setDateTime(), 'ciao', this.newMessageObj,this.receivedMessages);
+
   },
   
 }).mount('#app')

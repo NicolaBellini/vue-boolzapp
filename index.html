@@ -34,6 +34,13 @@
             <i class="fa-solid fa-circle-notch"></i>
             <i class="fa-solid fa-message"></i>
             <i class="fa-solid fa-ellipsis-vertical"></i>
+            <!-- bottone darkmode -->
+            <div class="darkModeBtn" @click="activateDarkMode(), console.log(isDarkModeActive)">
+              <i class="fa-solid fa-sun" v-if="isDarkModeActive"></i>
+              <i class="fa-solid fa-moon" v-if="!isDarkModeActive"></i>
+
+            </div>
+            <!-- bottone darkmode -->  
           </div>
         </div>
   <!-- campanella -->
@@ -50,11 +57,11 @@
         <div class="col input d-flex d-center align-center">
           <div class="container d-flex">
             <div class="magnifying d-flex align-center d-center">
-              <i class="fa-solid fa-magnifying-glass" @click="isSearched=true"></i>
+              <i class="fa-solid fa-magnifying-glass"></i>
             </div> 
             <div class="search d-flex align-center">
               <input type="text" placeholder="Cerca o inizia una nuova chat"
-              v-model.trim="searchInput" @focus="isSearched=true">
+              v-model.trim="searchInput">
             </div>
           </div>
         </div>
@@ -63,7 +70,7 @@
 
 
           <!-- un contatto miniatura -->
-          <div v-if="">
+          <div >
             <div
               @click="getIdChat(index), console.log(counterContact)"
               class="col personal d-flex align-center"
@@ -111,11 +118,7 @@
             <i class="fa-solid fa-magnifying-glass"></i>
             <i class="fa-solid fa-paperclip"></i>
             <i class="fa-solid fa-ellipsis-vertical"></i>
-              <!-- bottone darkmode -->
-            <div class="darkModeBtn" @click="activateDarkMode(), console.log(isDarkModeActive)">
 
-            </div>
-            <!-- bottone darkmode -->
           </div>
         </div>
         <!-- contatto sopra la chat -->
